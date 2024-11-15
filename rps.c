@@ -76,6 +76,3 @@ unsigned int battle_logic(unsigned int computer, unsigned int player) {
     printf("YOU LOSE :( \n");
     return COMPUTER_WIN;
 }
-int get_computer_choice() {
-   ; 
-}
