@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 #define COMPUTER_WIN 02
 #define PLAYER_WIN 01
@@ -65,11 +66,11 @@ unsigned int battle_logic(unsigned int computer, unsigned int player) {
     if (computer == player) return TIE;
     
     struct packed_choices choices;
+    memset(&choices, 0, sizeof(choices));
     choices.playerChoice = player;
     choices.computerChoice = computer;
     uint8_t choices_int = *(uint8_t *)&choices; 
-    choices_int = choices_int & 017;
-    if (choices_int == 2 || choices_int == 4 || choices_int == 9) {
+    if (choices_int == 1 || choices_int == 6 || choices_int == 8) {
         printf("YOU WIN !!!\n");
         return PLAYER_WIN;
     }
